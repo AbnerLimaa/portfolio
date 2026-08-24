@@ -25,12 +25,12 @@ const selected = [...featured, ...rest].slice(0, 5);
     </h1>
 
     <p class="text-ink-soft mt-6 max-w-md">
-      {SITE.role} — based on the work below, not a list of buzzwords.
+      {SITE.role} — passionate about creating robust software solutions.
     </p>
 
     <div class="mt-8 flex flex-wrap items-center gap-3">
       <Button href="/work" variant="solid">View the work →</Button>
-      <Button href="#contact" variant="ghost">Say hello</Button>
+      <Button href="#contact" variant="ghost">Get in touch</Button>
     </div>
   </section>
 
@@ -59,18 +59,21 @@ const selected = [...featured, ...rest].slice(0, 5);
       {SITE.description}
     </p>
     <a href="/about" class="text-signal mt-4 inline-block font-mono text-xs hover:underline">
-      More about how I work →
+      More about my work →
     </a>
   </section>
 
   <section id="contact" class="mx-auto max-w-3xl px-6 pb-24">
     <SectionHeading eyebrow="Let's talk" />
     <p class="font-display text-ink max-w-lg text-2xl sm:text-3xl">
-      Have something worth building?
+      Feel free to reach out.
+    </p>
+    <p class="text-ink-soft mt-4 max-w-md">
+      I'm always open to discussing and connecting with other professionals. You can send me an email or reach out directly on <a href={SITE.social.find(s => s.label === 'LinkedIn')?.href} class="text-signal hover:underline">LinkedIn</a>.
     </p>
     <a
       href={`mailto:${SITE.email}`}
-      class="text-signal mt-4 inline-flex items-center gap-2 font-mono hover:underline"
+      class="text-signal mt-6 inline-flex items-center gap-2 font-mono hover:underline"
     >
       {SITE.email}
     </a>

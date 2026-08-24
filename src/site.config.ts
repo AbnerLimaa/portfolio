@@ -1,22 +1,23 @@
 // Edit this file to re-label the entire site. Header, Footer, the homepage
 // and SEO defaults all read from here instead of hardcoding copy.
 export const SITE = {
-  name: 'John Doe',
-  role: 'Product design & frontend engineering',
-  email: 'johndoe@example.com',
-  tagline: 'I design and build interfaces that hold up under real use.',
+  name: 'Abner Lima',
+  role: 'Senior Software Engineer',
+  email: 'abner.lima27@outlook.com',
+  tagline: 'I architect and build high-performance, scalable distributed systems.',
   description:
-    'Portfolio of John Doe — product design and frontend engineering, with an emphasis on speed, clarity, and the details most people skip.',
-  status: 'Currently building at Studio Co · open to new work, Q3 2026',
+    'Portfolio of Abner Lima — Software Engineer specialized in event-driven architecture, microservices, and robust cloud infrastructure with experience working for the financial market.',
+  status: 'Currently building open-source at Cajá Tech · open to new work, Q3 2026',
   social: [
-    { label: 'GitHub', href: 'https://github.com/your-username' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/your-username' },
-    { label: 'X', href: 'https://x.com/your-username' },
+    { label: 'GitHub', href: 'https://github.com/AbnerLimaa' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/abner-lima-64262b114' },
   ],
   locale: 'en',
 } as const;
 
 export const NAV_LINKS = [
   { label: 'Work', href: '/work' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },
 ] as const;

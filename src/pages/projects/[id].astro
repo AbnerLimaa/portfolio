@@ -1,0 +1,52 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/Button.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('projects', ({ data }) => !data.draft);
+  return entries.map((entry) => ({
+    params: { id: entry.id },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'projects'>;
+}
+
+const { entry } = Astro.props;
+const { title, description, icon, repo } = entry.data;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="mx-auto max-w-3xl px-6 pt-16 pb-24 sm:pt-24">
+    <a href="/projects" class="text-ink-soft hover:text-signal font-mono text-xs transition-colors">
+      ← All projects
+    </a>
+
+    <div class="mt-6 flex items-center gap-4">
+      {icon && (
+        <img src={icon} alt="" class="h-10 w-10" aria-hidden="true" />
+      )}
+      <h1 class="font-display text-ink max-w-2xl text-3xl font-medium sm:text-4xl">
+        {title}
+      </h1>
+    </div>
+
+    <div class="prose prose-sm sm:prose-base mt-10 max-w-2xl">
+      <Content />
+    </div>
+
+    <div class="mt-10 flex flex-wrap gap-3">
+      {
+        repo && (
+          <Button href={repo} variant="solid">
+            View on GitHub →
+          </Button>
+        )
+      }
+    </div>
+  </article>
+</BaseLayout>

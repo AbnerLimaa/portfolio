@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SectionHeading from '@/components/SectionHeading.astro';
+
+const projects = (await getCollection('projects', ({ data }) => !data.draft));
+---
+
+<BaseLayout title="Projects" description="Open source projects and experiments.">
+  <section class="mx-auto max-w-3xl px-6 pt-16 pb-24 sm:pt-24">
+    <SectionHeading eyebrow="Projects" count={projects.length} />
+    <div class="mt-8 grid gap-6 sm:grid-cols-2">
+      {projects.map((project) => (
+        <a href={`/projects/${project.id}`} class="border-line hover:border-signal block border p-6 sm:p-8 transition-colors">
+          <div class="flex items-center gap-3">
+            {project.data.icon && (
+              <img src={project.data.icon} alt="" class="h-6 w-6" aria-hidden="true" />
+            )}
+            <h2 class="font-display text-ink text-xl">{project.data.title}</h2>
+          </div>
+          <p class="text-ink-soft mt-3 text-sm">{project.data.description}</p>
+          <span class="text-signal mt-6 inline-block font-mono text-xs">View details →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
