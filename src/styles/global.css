@@ -16,7 +16,7 @@
   --paper: #f7f6f3; /* page background */
   --ink: #15161b; /* primary text */
   --ink-soft: #5b5d66; /* secondary text */
-  --signal: #3d3dff; /* the one accent color */
+  --signal: #3A86FF; /* the one accent color */
   --line: #e4e2dc; /* borders, rules */
   --surface: #efeeea; /* cards, raised panels */
 }
@@ -27,7 +27,7 @@
   --paper: #101114;
   --ink: #f2f1ed;
   --ink-soft: #9a9ca6;
-  --signal: #7b7bff;
+  --signal: #3A86FF;
   --line: #26272c;
   --surface: #1a1b20;
 }
