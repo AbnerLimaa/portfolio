@@ -2,13 +2,13 @@
 title: BTG Pactual
 summary: Engenheiro Full Stack responsável por arquitetar e desenvolver um motor de cálculo financeiro para Gestão de Portfólio.
 role: Engenheiro Full Stack / TI Finanças & Produtos
-date: 2026-07-01
+startDate: 2020-10-01
+endDate: 2026-07-01
+location: São Paulo - Remoto
 tags: [.NET, AWS, Microsserviços, Claude Code]
 featured: true
 draft: false
 ---
-
-Outubro 2020 - Julho 2026 (São Paulo - Remoto)
 
 Como Engenheiro Full Stack no Banco de Investimentos BTG Pactual, arquitetei e desenvolvi um motor de cálculo financeiro para Gestão de Portfólio voltado para operações de crédito no segmento de Special Situations, alimentando métricas críticas como P&L, Funding e Valor Presente.
 

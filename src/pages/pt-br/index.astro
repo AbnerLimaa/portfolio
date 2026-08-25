@@ -7,7 +7,11 @@ import SectionHeading from '@/components/SectionHeading.astro';
 import { SITE } from '@/site.config';
 
 const allWork = await getCollection('work', ({ id, data }) => !data.draft && id.endsWith('-pt-br'));
-const sorted = [...allWork].sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const sorted = [...allWork].sort((a, b) => {
+  const aDate = a.data.endDate ? a.data.endDate.valueOf() : new Date().valueOf();
+  const bDate = b.data.endDate ? b.data.endDate.valueOf() : new Date().valueOf();
+  return bDate - aDate;
+});
 const featured = sorted.filter((entry) => entry.data.featured);
 const rest = sorted.filter((entry) => !entry.data.featured);
 const selected = [...featured, ...rest].slice(0, 5);

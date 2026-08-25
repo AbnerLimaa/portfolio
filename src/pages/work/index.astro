@@ -5,7 +5,11 @@ import WorkRow from '@/components/WorkRow.astro';
 import SectionHeading from '@/components/SectionHeading.astro';
 
 const allWork = (await getCollection('work', ({ id, data }) => !data.draft && !id.endsWith('-pt-br'))).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+  (a, b) => {
+    const aDate = a.data.endDate ? a.data.endDate.valueOf() : new Date().valueOf();
+    const bDate = b.data.endDate ? b.data.endDate.valueOf() : new Date().valueOf();
+    return bDate - aDate;
+  }
 );
 ---
 

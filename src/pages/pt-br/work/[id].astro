@@ -17,10 +17,11 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-const { title, summary, role, date, tags, url, repo } = entry.data;
+const { title, summary, role, startDate, endDate, location, tags, url, repo } = entry.data;
 const { Content } = await render(entry);
 
-const formattedDate = formatDate(date, "long", undefined, "pt-BR");
+const startStamp = formatDate(startDate, 'compact', undefined, 'pt-BR');
+const endStamp = endDate ? formatDate(endDate, 'compact', undefined, 'pt-BR') : 'Presente';
 ---
 
 <BaseLayout title={title} description={summary}>
@@ -36,12 +37,13 @@ const formattedDate = formatDate(date, "long", undefined, "pt-BR");
     <dl
       class="border-line text-ink-soft mt-6 flex flex-wrap gap-x-8 gap-y-2 border-y py-4 font-mono text-xs"
     >
-      <div><dt class="inline">Papel —</dt><dd class="inline">{role}</dd></div>
-      <div><dt class="inline">Data —</dt><dd class="inline">{formattedDate}</dd></div>
+      <div><dt class="inline">Cargo: </dt><dd class="inline">{role}</dd></div>
+      {location && <div><dt class="inline">Localização: </dt><dd class="inline">{location}</dd></div>}
+      <div><dt class="inline">Período: </dt><dd class="inline">{startStamp} - {endStamp}</dd></div>
       {
         tags.length > 0 && (
           <div>
-            <dt class="inline">Tecnologias — </dt>
+            <dt class="inline">Tecnologias: </dt>
             <dd class="inline">{tags.join(', ')}</dd>
           </div>
         )

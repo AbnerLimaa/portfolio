@@ -2,13 +2,13 @@
 title: BTG Pactual Investment Bank
 summary: Full Stack Engineer responsible for architecting and developing a financial calculation engine for Portfolio Management.
 role: Full Stack Engineer / IT Finance & Products
-date: 2026-07-01
+startDate: 2020-10-01
+endDate: 2026-07-01
+location: São Paulo - Remote
 tags: [.NET, AWS, Microservices, Claude Code]
 featured: true
 draft: false
 ---
-
-October 2020 - July 2026 (São Paulo - Remote)
 
 As a Full Stack Engineer at BTG Pactual Investment Bank, I architected and developed a core financial calculation engine for Portfolio Management, powering critical metrics such as P&L, Funding, and Present Value.
 
