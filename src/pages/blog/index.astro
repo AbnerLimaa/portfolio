@@ -17,15 +17,29 @@ const posts = (await getCollection('blog', ({ id, data }) => !data.draft && !id.
         <p class="text-ink-soft text-sm">No blog posts yet. Stay tuned!</p>
       </div>
     ) : (
-      <div class="mt-8 space-y-12">
+      <div class="mt-8">
         {posts.map((post) => (
-          <article>
-            <p class="text-ink-soft font-mono text-xs">{formatDate(post.data.date, 'compact')}</p>
-            <h2 class="font-display text-ink hover:text-signal mt-2 text-2xl transition-colors">
-              <a href={`/blog/${post.id}`}>{post.data.title}</a>
-            </h2>
-            <p class="text-ink-soft mt-3">{post.data.summary}</p>
-          </article>
+          <a
+            href={`/blog/${post.id}`}
+            class="group border-line hover:border-signal grid grid-cols-[1fr_auto] items-center gap-4 border-b py-5 transition-colors sm:gap-6"
+          >
+            <article class="min-w-0">
+              <p class="text-ink-soft font-mono text-xs mb-1">{formatDate(post.data.date, 'numeric')}</p>
+              <h2 class="font-display text-ink group-hover:text-signal block truncate text-lg transition-colors">
+                {post.data.title}
+              </h2>
+              <p class="text-ink-soft hidden truncate text-sm sm:block">{post.data.summary}</p>
+            </article>
+
+            <span class="flex items-center gap-4">
+              <span
+                aria-hidden="true"
+                class="text-ink-soft group-hover:text-signal transition-all group-hover:translate-x-1"
+              >
+                →
+              </span>
+            </span>
+          </a>
         ))}
       </div>
     )}
