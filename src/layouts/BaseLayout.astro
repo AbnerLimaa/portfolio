@@ -12,12 +12,28 @@ interface Props {
 }
 
 const { title, description = SITE.description, image = '/og-image.png' } = Astro.props;
+
+const lang = Astro.currentLocale ?? SITE.locale;
 ---
 
 <!doctype html>
-<html lang={SITE.locale}>
+<html lang={lang}>
   <head>
     <BaseHead title={title} description={description} image={image} />
+    <script is:inline>
+      (function() {
+        const isRoot = window.location.pathname === '/' || window.location.pathname === '';
+        if (!isRoot) return;
+
+        const savedLang = localStorage.getItem('preferred-lang');
+        if (savedLang === 'en') return;
+
+        const browserLang = navigator.language || navigator.userLanguage;
+        if (browserLang && browserLang.toLowerCase().startsWith('pt')) {
+          window.location.replace('/pt-br' + window.location.search + window.location.hash);
+        }
+      })();
+    </script>
   </head>
   <body id="top" class="bg-paper text-ink">
     <Header />

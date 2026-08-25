@@ -45,7 +45,8 @@ const languages = [
       {languages.map((lang) => (
         <a
           href={lang.href}
-          class="px-4 py-2 text-sm font-mono tracking-wide text-ink-soft hover:bg-surface hover:text-ink whitespace-nowrap transition-colors"
+          data-lang-code={lang.code.startsWith('en') ? 'en' : 'pt-br'}
+          class="px-4 py-2 text-sm font-mono tracking-wide text-ink-soft hover:bg-surface hover:text-ink whitespace-nowrap transition-colors lang-link"
         >
           {lang.code}
         </a>
@@ -53,3 +54,14 @@ const languages = [
     </div>
   </div>
 </div>
+
+<script is:inline>
+  document.querySelectorAll('.lang-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const code = e.currentTarget.getAttribute('data-lang-code');
+      if (code) {
+        localStorage.setItem('preferred-lang', code);
+      }
+    });
+  });
+</script>

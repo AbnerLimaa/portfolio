@@ -6,7 +6,7 @@ export const SITE = {
   email: 'abner.lima27@outlook.com',
   tagline: 'I architect and build high-performance, scalable distributed systems.',
   description:
-    'Portfolio of Abner Lima — Software Engineer specialized in event-driven architecture, microservices, and robust cloud infrastructure with experience working for the financial market.',
+    'My Portfolio — Software Engineer specialized in event-driven architecture, microservices, and robust cloud infrastructure with experience working for the financial market.',
   status: 'Currently building open-source at Cajá Tech · open to new work, Q3 2026',
   social: [
     { label: 'GitHub', href: 'https://github.com/AbnerLimaa' },
