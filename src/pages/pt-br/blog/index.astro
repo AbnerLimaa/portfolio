@@ -20,7 +20,7 @@ const posts = (await getCollection('blog', ({ id, data }) => !data.draft && id.e
       <div class="mt-8 space-y-12">
         {posts.map((post) => (
           <article>
-            <p class="text-ink-soft font-mono text-xs">{formatDate(post.data.date, 'compact')}</p>
+            <p class="text-ink-soft font-mono text-xs">{formatDate(post.data.date, 'compact', undefined, 'pt-BR')}</p>
             <h2 class="font-display text-ink hover:text-signal mt-2 text-2xl transition-colors">
               <a href={`/pt-br/blog/${post.id.replace('-pt-br', '')}`}>{post.data.title}</a>
             </h2>

@@ -9,13 +9,13 @@ interface Props {
 const { entry } = Astro.props;
 const { title, summary, date, tags } = entry.data;
 
-const stamp = formatDate(date, "compact");
-
 const currentPath = Astro.url.pathname;
 const isPtBr = currentPath.startsWith('/pt-br/') || currentPath === '/pt-br';
 const prefix = isPtBr ? '/pt-br' : '';
 const cleanId = entry.id.replace('-pt-br', '');
 const href = `${prefix}/work/${cleanId}`;
+
+const stamp = formatDate(date, "compact", undefined, isPtBr ? "pt-BR" : "en-US");
 ---
 
 <a

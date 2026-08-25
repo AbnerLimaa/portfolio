@@ -13,6 +13,7 @@ October 2020 - July 2026 (São Paulo - Remote)
 As a Full Stack Engineer at BTG Pactual Investment Bank, I architected and developed a core financial calculation engine for Portfolio Management, powering critical metrics such as P&L, Funding, and Present Value.
 
 Key responsibilities and achievements included:
+
 - **Engineered mission-critical systems** with a strong focus on high availability and distributed processing.
 - **Designed and implemented robust inter-system communication** using event-driven architectures with AWS SQS and RabbitMQ, integrated with various microservices (REST APIs, Worker Services).
 - **Leveraged scalable AWS cloud infrastructure**, including ECS, EKS, and CloudFormation, to seamlessly deploy and manage services.

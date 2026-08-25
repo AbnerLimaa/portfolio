@@ -20,7 +20,7 @@ const { entry } = Astro.props;
 const { title, summary, role, date, tags, url, repo } = entry.data;
 const { Content } = await render(entry);
 
-const formattedDate = formatDate(date);
+const formattedDate = formatDate(date, "long", undefined, "pt-BR");
 ---
 
 <BaseLayout title={title} description={summary}>

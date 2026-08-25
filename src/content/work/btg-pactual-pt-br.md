@@ -10,7 +10,7 @@ draft: false
 
 Outubro 2020 - Julho 2026 (São Paulo - Remoto)
 
-Como Engenheiro Full Stack no Banco de Investimentos BTG Pactual, arquitetei e desenvolvi um motor de cálculo financeiro para Gestão de Portfólio voltato para operações de crédito no segmento de Special Situations, alimentando métricas críticas como P&L, Funding e Valor Presente.
+Como Engenheiro Full Stack no Banco de Investimentos BTG Pactual, arquitetei e desenvolvi um motor de cálculo financeiro para Gestão de Portfólio voltado para operações de crédito no segmento de Special Situations, alimentando métricas críticas como P&L, Funding e Valor Presente.
 
 Principais responsabilidades e conquistas:
 

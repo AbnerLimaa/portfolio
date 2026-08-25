@@ -11,9 +11,10 @@ const dateStyles: Record<DateStyle, Intl.DateTimeFormatOptions> = {
 export function formatDate(
   date: Date,
   style: DateStyle = "long",
-  options?: Intl.DateTimeFormatOptions
+  options?: Intl.DateTimeFormatOptions,
+  locale: string = "en-US"
 ) {
-  return new Intl.DateTimeFormat("en-US", {
+  return new Intl.DateTimeFormat(locale, {
     timeZone: "UTC",
     ...dateStyles[style],
     ...options,
