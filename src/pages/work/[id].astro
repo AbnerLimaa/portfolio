@@ -53,22 +53,5 @@ const endStamp = endDate ? formatDate(endDate, 'compact') : 'Present';
     <div class="prose prose-sm sm:prose-base mt-10 max-w-2xl">
       <Content />
     </div>
-
-    <div class="mt-10 flex flex-wrap gap-3">
-      {
-        url && (
-          <Button href={url} variant="solid">
-            Visit live →
-          </Button>
-        )
-      }
-      {
-        repo && (
-          <Button href={repo} variant="ghost">
-            View source
-          </Button>
-        )
-      }
-    </div>
   </article>
 </BaseLayout>

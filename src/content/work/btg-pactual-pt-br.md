@@ -5,14 +5,16 @@ role: Engenheiro Full Stack / TI Finanças & Produtos
 startDate: 2020-10-01
 endDate: 2026-07-01
 location: São Paulo - Remoto
-tags: [.NET, AWS, Microsserviços, Claude Code]
+tags: [.NET, AWS, Microservices, Docker, Kubernetes, SQL Server, RabbitMQ, Datadog,  Claude Code]
 featured: true
 draft: false
 ---
 
+## Resumo
+
 Como Engenheiro Full Stack no Banco de Investimentos BTG Pactual, arquitetei e desenvolvi um motor de cálculo financeiro para Gestão de Portfólio voltado para operações de crédito no segmento de Special Situations, alimentando métricas críticas como P&L, Funding e Valor Presente.
 
-Principais responsabilidades e conquistas:
+### Principais responsabilidades e conquistas:
 
 - **Desenvolvi sistemas críticos** com foco em alta disponibilidade e processamento distribuído.
 - **Projetei e implementei comunicação robusta entre sistemas** usando arquiteturas orientadas a eventos com AWS SQS e RabbitMQ, integradas com diversos microsserviços (APIs REST, Worker Services).

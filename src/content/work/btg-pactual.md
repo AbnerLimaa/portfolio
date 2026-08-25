@@ -5,14 +5,16 @@ role: Full Stack Engineer / IT Finance & Products
 startDate: 2020-10-01
 endDate: 2026-07-01
 location: São Paulo - Remote
-tags: [.NET, AWS, Microservices, Claude Code]
+tags: [.NET, AWS, Microservices, Docker, Kubernetes, SQL Server, RabbitMQ, Datadog, Claude Code]
 featured: true
 draft: false
 ---
 
-As a Full Stack Engineer at BTG Pactual Investment Bank, I architected and developed a core financial calculation engine for Portfolio Management, powering critical metrics such as P&L, Funding, and Present Value.
+## Resume
 
-Key responsibilities and achievements included:
+As a Full Stack Engineer at BTG Pactual Investment Bank, I architected and developed a core financial calculation engine for Portfolio Management focused on credit contracts within the Special Situations business unit, powering critical metrics such as P&L, Funding, and Present Value.
+
+### Key responsibilities and achievements included:
 
 - **Engineered mission-critical systems** with a strong focus on high availability and distributed processing.
 - **Designed and implemented robust inter-system communication** using event-driven architectures with AWS SQS and RabbitMQ, integrated with various microservices (REST APIs, Worker Services).

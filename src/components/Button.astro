@@ -1,11 +1,13 @@
 ---
-interface Props {
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'a'> & HTMLAttributes<'button'> & {
   href?: string;
   variant?: 'solid' | 'ghost';
   class?: string;
-}
+};
 
-const { href, variant = 'solid', class: className } = Astro.props;
+const { href, variant = 'solid', class: className, ...rest } = Astro.props;
 
 const base =
   'inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-colors';
@@ -18,6 +20,6 @@ const classes = [base, variants[variant], className].filter(Boolean).join(' ');
 const Tag = href ? 'a' : 'button';
 ---
 
-<Tag class={classes} href={href}>
+<Tag class={classes} href={href} {...rest}>
   <slot />
 </Tag>

@@ -2,6 +2,8 @@
 import { defineConfig, fontProviders } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
+import rehypeExternalLinks from 'rehype-external-links';
+import { unified } from '@astrojs/markdown-remark';
 
 // Replace with your production URL after deploying to Vercel / Netlify.
 // It powers the sitemap and the canonical / Open Graph URLs in BaseLayout.
@@ -9,6 +11,14 @@ const SITE_URL = 'https://astro-starter-portfolio.vercel.app';
 
 export default defineConfig({
   site: SITE_URL,
+
+  markdown: {
+    processor: unified({
+      rehypePlugins: [
+        [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }]
+      ]
+    })
+  },
 
   i18n: {
     defaultLocale: 'en',
