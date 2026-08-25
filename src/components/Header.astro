@@ -95,7 +95,7 @@ const currentNavLinks = isPtBr ? NAV_LINKS_PT_BR : NAV_LINKS;
     const menu = document.getElementById('mobile-menu');
     const iconOpen = document.getElementById('menu-icon-open');
     const iconClose = document.getElementById('menu-icon-close');
-    const links = document.querySelectorAll('.mobile-nav-link');
+    const links = document.querySelectorAll<HTMLAnchorElement>('.mobile-nav-link');
     const header = document.getElementById('main-header');
 
     if (!btn) return;
