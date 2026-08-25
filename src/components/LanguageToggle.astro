@@ -19,10 +19,12 @@ const languages = [
 ];
 ---
 
-<div class="relative group">
+<div class="relative" id="lang-toggle-container">
   <button
+    id="lang-toggle-btn"
     type="button"
     aria-label="Change language"
+    aria-expanded="false"
     class="text-ink-soft hover:border-signal hover:text-signal border-line flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-colors"
   >
     <svg
@@ -40,7 +42,7 @@ const languages = [
     </svg>
   </button>
 
-  <div class="absolute right-0 top-full pt-2 hidden group-hover:flex group-focus-within:flex z-50">
+  <div id="lang-dropdown" class="absolute right-0 top-full pt-2 hidden z-50">
     <div class="flex flex-col overflow-hidden rounded-md border border-line bg-paper shadow-sm">
       {languages.map((lang) => (
         <a
@@ -55,13 +57,45 @@ const languages = [
   </div>
 </div>
 
-<script is:inline>
-  document.querySelectorAll('.lang-link').forEach(link => {
-    link.addEventListener('click', (e) => {
-      const code = e.currentTarget.getAttribute('data-lang-code');
-      if (code) {
-        localStorage.setItem('preferred-lang', code);
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const btn = document.getElementById('lang-toggle-btn');
+    const dropdown = document.getElementById('lang-dropdown');
+    const links = document.querySelectorAll('.lang-link');
+    
+    if (!btn || !dropdown) return;
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) {
+        btn.setAttribute('aria-expanded', 'false');
+        dropdown.classList.add('hidden');
+        dropdown.classList.remove('flex');
+      } else {
+        btn.setAttribute('aria-expanded', 'true');
+        dropdown.classList.remove('hidden');
+        dropdown.classList.add('flex');
       }
+    });
+
+    document.addEventListener('click', (e) => {
+      const target = e.target;
+      // Close dropdown if click is outside
+      if (target instanceof Node && !dropdown.contains(target) && btn.getAttribute('aria-expanded') === 'true') {
+        btn.setAttribute('aria-expanded', 'false');
+        dropdown.classList.add('hidden');
+        dropdown.classList.remove('flex');
+      }
+    });
+
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const code = (e.currentTarget as HTMLElement).getAttribute('data-lang-code');
+        if (code) {
+          localStorage.setItem('preferred-lang', code);
+        }
+      });
     });
   });
 </script>
