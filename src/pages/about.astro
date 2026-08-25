@@ -19,8 +19,22 @@ const tools = [
 ---
 
 <BaseLayout title="About Me" description={`A bit about ${SITE.name} and how they work.`}>
-  <section class="mx-auto max-w-3xl px-6 pt-16 pb-24 sm:pt-24">
-    <p class="text-ink-soft mb-6 font-mono text-xs tracking-[0.2em] uppercase">About Me</p>
+  <section class="mx-auto max-w-3xl px-6 pt-8 pb-24 sm:pt-12">
+    <!-- Landscape Cover Image -->
+    <div class="w-full aspect-video rounded-xl overflow-hidden bg-surface">
+      <img src="/IMG_5429.jpeg" alt="Cover Image" class="w-full h-full object-cover" />
+    </div>
+
+    <!-- Profile Picture -->
+    <div class="relative -mt-16 sm:-mt-20 mb-6 ml-4 sm:ml-8">
+      <img 
+        src="/IMG_4792.JPG" 
+        alt="Profile" 
+        class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-4 sm:border-[6px] border-paper bg-paper"
+      />
+    </div>
+
+    <p class="text-ink-soft mb-6 font-mono text-xs tracking-[0.2em] uppercase mt-4">About Me</p>
 
     <h1 class="font-display text-ink max-w-xl text-3xl font-medium sm:text-4xl">
       {SITE.role}.
