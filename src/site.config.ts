@@ -19,12 +19,12 @@ export const NAV_LINKS = [
   { label: 'Work', href: '/work' },
   { label: 'Projects', href: '/projects' },
   { label: 'Blog', href: '/blog' },
-  { label: 'About', href: '/about' },
+  { label: 'About Me', href: '/about' },
 ] as const;
 
 export const NAV_LINKS_PT_BR = [
   { label: 'Trabalhos', href: '/pt-br/work' },
   { label: 'Projetos', href: '/pt-br/projects' },
   { label: 'Blog', href: '/pt-br/blog' },
-  { label: 'Sobre', href: '/pt-br/about' },
+  { label: 'Sobre Mim', href: '/pt-br/about' },
 ] as const;
