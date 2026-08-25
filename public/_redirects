@@ -1,0 +1,5 @@
+# Redirect browsers set to Portuguese to the /pt-br/ folder
+/    /pt-br/    302    Language=pt
+
+# Redirect everyone else to the /en/ folder as a default fallback
+/    /en/       302

@@ -4,17 +4,17 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import WorkRow from '@/components/WorkRow.astro';
 import SectionHeading from '@/components/SectionHeading.astro';
 
-const allWork = (await getCollection('work', ({ id, data }) => !data.draft && !id.endsWith('-pt-br'))).sort(
+const allWork = (await getCollection('work', ({ id, data }) => !data.draft && id.endsWith('-pt-br'))).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 ---
 
 <BaseLayout
-  title="Work"
-  description="Selected projects in software engineering."
+  title="Trabalhos"
+  description="Projetos selecionados em engenharia de software."
 >
   <section class="mx-auto max-w-3xl px-6 pt-16 pb-24 sm:pt-24">
-    <SectionHeading eyebrow="All work" count={allWork.length} />
+    <SectionHeading eyebrow="Todos os trabalhos" count={allWork.length} />
     <div>
       {allWork.map((entry) => <WorkRow entry={entry} />)}
     </div>

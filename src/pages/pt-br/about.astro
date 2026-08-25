@@ -1,0 +1,54 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/Button.astro';
+import { SITE } from '@/site.config';
+
+// Updated tech stack
+const tools = [
+  '.NET (C#)', 
+  'Golang', 
+  'AWS', 
+  'Microservices', 
+  'Docker', 
+  'Kubernetes', 
+  'PostgreSQL', 
+  'Next.js', 
+  'Kotlin',
+  'RabbitMQ'
+];
+---
+
+<BaseLayout title="Sobre" description={`Um pouco sobre ${SITE.name} e como ele trabalha.`}>
+  <section class="mx-auto max-w-3xl px-6 pt-16 pb-24 sm:pt-24">
+    <p class="text-ink-soft mb-6 font-mono text-xs tracking-[0.2em] uppercase">Sobre</p>
+
+    <h1 class="font-display text-ink max-w-xl text-3xl font-medium sm:text-4xl">
+      Engenheiro de Software Sênior.
+    </h1>
+
+    <div class="prose prose-sm sm:prose-base mt-8 max-w-xl">
+      <p>
+        Sou um Engenheiro de Software com sólida experiência na construção de sistemas escaláveis e de alta performance, principalmente para o mercado financeiro. Tenho um interesse especial em arquitetura orientada a eventos e microsserviços.
+      </p>
+      <p>
+        Na minha jornada profissional, arquitetei motores financeiros críticos, priorizando alta disponibilidade e rigorosa precisão de dados. Gosto de resolver regras de negócio complexas e utilizar infraestrutura em nuvem escalável para garantir um processamento distribuído perfeito.
+      </p>
+      <p>
+        Sou bacharel em Ciência da Computação pela Universidade Federal do Ceará (UFC), concluído em 2021.
+      </p>
+    </div>
+
+    <div class="mt-10">
+      <p class="text-ink-soft mb-3 font-mono text-xs tracking-[0.2em] uppercase">Tecnologias</p>
+      <ul class="flex flex-wrap gap-2">
+        {
+          tools.map((tool) => (
+            <li class="border-line text-ink-soft rounded-full border px-3 py-1 font-mono text-xs">
+              {tool}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

@@ -10,10 +10,16 @@ const { entry } = Astro.props;
 const { title, summary, date, tags } = entry.data;
 
 const stamp = formatDate(date, "compact");
+
+const currentPath = Astro.url.pathname;
+const isPtBr = currentPath.startsWith('/pt-br/') || currentPath === '/pt-br';
+const prefix = isPtBr ? '/pt-br' : '';
+const cleanId = entry.id.replace('-pt-br', '');
+const href = `${prefix}/work/${cleanId}`;
 ---
 
 <a
-  href={`/work/${entry.id}`}
+  href={href}
   class="group border-line hover:border-signal grid grid-cols-[3.5rem_1fr_auto] items-center gap-4 border-b py-5 transition-colors sm:grid-cols-[4.5rem_1fr_auto] sm:gap-6"
 >
   <span class="text-ink-soft font-mono text-xs">{stamp}</span>

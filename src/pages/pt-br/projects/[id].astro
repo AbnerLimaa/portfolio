@@ -4,9 +4,9 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Button from '@/components/Button.astro';
 
 export async function getStaticPaths() {
-  const entries = await getCollection('projects', ({ id, data }) => !data.draft && !id.endsWith('-pt-br'));
+  const entries = await getCollection('projects', ({ id, data }) => !data.draft && id.endsWith('-pt-br'));
   return entries.map((entry) => ({
-    params: { id: entry.id },
+    params: { id: entry.id.replace('-pt-br', '') },
     props: { entry },
   }));
 }
@@ -22,8 +22,8 @@ const { Content } = await render(entry);
 
 <BaseLayout title={title} description={description}>
   <article class="mx-auto max-w-3xl px-6 pt-16 pb-24 sm:pt-24">
-    <a href="/projects" class="text-ink-soft hover:text-signal font-mono text-xs transition-colors">
-      ← All projects
+    <a href="/pt-br/projects" class="text-ink-soft hover:text-signal font-mono text-xs transition-colors">
+      ← Todos os projetos
     </a>
 
     <div class="mt-6 flex items-center gap-4">
@@ -43,7 +43,7 @@ const { Content } = await render(entry);
       {
         repo && (
           <Button href={repo} variant="solid">
-            View on GitHub →
+            Ver no GitHub →
           </Button>
         )
       }

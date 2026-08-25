@@ -1,0 +1,55 @@
+---
+const currentPath = Astro.url.pathname;
+const isPtBr = currentPath.startsWith('/pt-br/') || currentPath === '/pt-br';
+let basePath = currentPath;
+
+if (isPtBr) {
+  basePath = currentPath.replace(/^\/pt-br\/?/, '/');
+  if (!basePath.startsWith('/')) {
+    basePath = '/' + basePath;
+  }
+}
+
+const enUrl = basePath;
+const ptBrUrl = basePath === '/' ? '/pt-br' : `/pt-br${basePath.startsWith('/') ? basePath : `/${basePath}`}`;
+
+const languages = [
+  { code: 'en-US', label: 'English', href: enUrl },
+  { code: 'pt-BR', label: 'Português', href: ptBrUrl }
+];
+---
+
+<div class="relative group">
+  <button
+    type="button"
+    aria-label="Change language"
+    class="text-ink-soft hover:border-signal hover:text-signal border-line flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-colors"
+  >
+    <svg
+      class="h-4 w-4"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.75"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+      <path d="M2 12h20"></path>
+    </svg>
+  </button>
+
+  <div class="absolute right-0 top-full pt-2 hidden group-hover:flex group-focus-within:flex z-50">
+    <div class="flex flex-col overflow-hidden rounded-md border border-line bg-paper shadow-sm">
+      {languages.map((lang) => (
+        <a
+          href={lang.href}
+          class="px-4 py-2 text-sm font-mono tracking-wide text-ink-soft hover:bg-surface hover:text-ink whitespace-nowrap transition-colors"
+        >
+          {lang.code}
+        </a>
+      ))}
+    </div>
+  </div>
+</div>

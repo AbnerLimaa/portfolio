@@ -6,7 +6,7 @@ import WorkRow from '@/components/WorkRow.astro';
 import SectionHeading from '@/components/SectionHeading.astro';
 import { SITE } from '@/site.config';
 
-const allWork = await getCollection('work', ({ id, data }) => !data.draft && !id.endsWith('-pt-br'));
+const allWork = await getCollection('work', ({ id, data }) => !data.draft && id.endsWith('-pt-br'));
 const sorted = [...allWork].sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 const featured = sorted.filter((entry) => entry.data.featured);
 const rest = sorted.filter((entry) => !entry.data.featured);
@@ -17,25 +17,25 @@ const selected = [...featured, ...rest].slice(0, 5);
   <section class="mx-auto max-w-3xl px-6 pt-16 pb-20 sm:pt-24">
     <p class="text-ink-soft mb-6 inline-flex items-center gap-2 font-mono text-xs">
       <span class="bg-signal h-1.5 w-1.5 rounded-full" aria-hidden="true"></span>
-      {SITE.status}
+      Atualmente construindo projetos open-source na Cajá Tech · aberto a novas oportunidades, Q3 2026
     </p>
 
     <h1 class="font-display text-ink max-w-2xl text-4xl leading-[1.1] font-medium sm:text-5xl">
-      {SITE.tagline}
+      Arquiteto e construo sistemas distribuídos escaláveis e de alta performance.
     </h1>
 
     <p class="text-ink-soft mt-6 max-w-md">
-      {SITE.role} — passionate about creating robust software solutions.
+      Engenheiro de Software Sênior — apaixonado por criar soluções de software robustas.
     </p>
 
     <div class="mt-8 flex flex-wrap items-center gap-3">
-      <Button href="/work" variant="solid">View my work →</Button>
-      <Button href="#contact" variant="ghost">Get in touch</Button>
+      <Button href="/pt-br/work" variant="solid">Veja meus trabalhos →</Button>
+      <Button href="#contact" variant="ghost">Entre em contato</Button>
     </div>
   </section>
 
   <section id="work" class="mx-auto max-w-3xl px-6 pb-20">
-    <SectionHeading eyebrow="Selected work" count={allWork.length} />
+    <SectionHeading eyebrow="Trabalhos em destaque" count={allWork.length} />
     <div>
       {selected.map((entry) => <WorkRow entry={entry} />)}
     </div>
@@ -43,10 +43,10 @@ const selected = [...featured, ...rest].slice(0, 5);
       allWork.length > selected.length && (
         <div class="mt-6">
           <a
-            href="/work"
+            href="/pt-br/work"
             class="text-ink-soft hover:text-signal font-mono text-xs transition-colors"
           >
-            View all {allWork.length} projects →
+            Veja todos os {allWork.length} projetos →
           </a>
         </div>
       )
@@ -54,22 +54,22 @@ const selected = [...featured, ...rest].slice(0, 5);
   </section>
 
   <section id="about" class="mx-auto max-w-3xl px-6 pb-20">
-    <SectionHeading eyebrow="About" />
+    <SectionHeading eyebrow="Sobre" />
     <p class="text-ink-soft max-w-xl">
-      {SITE.description}
+      Portfólio de Abner Lima — Engenheiro de Software especializado em arquitetura orientada a eventos, microsserviços e infraestrutura robusta em nuvem com experiência no mercado financeiro.
     </p>
-    <a href="/about" class="text-signal mt-4 inline-block font-mono text-xs hover:underline">
-      More about my work →
+    <a href="/pt-br/about" class="text-signal mt-4 inline-block font-mono text-xs hover:underline">
+      Mais sobre meu trabalho →
     </a>
   </section>
 
   <section id="contact" class="mx-auto max-w-3xl px-6 pb-24">
-    <SectionHeading eyebrow="Let's talk" />
+    <SectionHeading eyebrow="Vamos conversar" />
     <p class="font-display text-ink max-w-lg text-2xl sm:text-3xl">
-      Feel free to reach out.
+      Sinta-se à vontade para entrar em contato.
     </p>
     <p class="text-ink-soft mt-4 max-w-md">
-      I'm always open to discussing and connecting with other professionals. You can send me an email or reach out directly on <a href={SITE.social.find(s => s.label === 'LinkedIn')?.href} class="text-signal hover:underline">LinkedIn</a>.
+      Estou sempre aberto para discutir e me conectar com outros profissionais. Você pode me enviar um e-mail ou entrar em contato diretamente no <a href={SITE.social.find(s => s.label === 'LinkedIn')?.href} class="text-signal hover:underline">LinkedIn</a>.
     </p>
     <a
       href={`mailto:${SITE.email}`}

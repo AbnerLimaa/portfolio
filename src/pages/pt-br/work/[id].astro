@@ -5,9 +5,9 @@ import Button from '@/components/Button.astro';
 import { formatDate } from '@/utils/formatDate';
 
 export async function getStaticPaths() {
-  const entries = await getCollection('work', ({ id, data }) => !data.draft && !id.endsWith('-pt-br'));
+  const entries = await getCollection('work', ({ id, data }) => !data.draft && id.endsWith('-pt-br'));
   return entries.map((entry) => ({
-    params: { id: entry.id },
+    params: { id: entry.id.replace('-pt-br', '') },
     props: { entry },
   }));
 }
@@ -25,8 +25,8 @@ const formattedDate = formatDate(date);
 
 <BaseLayout title={title} description={summary}>
   <article class="mx-auto max-w-3xl px-6 pt-16 pb-24 sm:pt-24">
-    <a href="/work" class="text-ink-soft hover:text-signal font-mono text-xs transition-colors">
-      ← All work
+    <a href="/pt-br/work" class="text-ink-soft hover:text-signal font-mono text-xs transition-colors">
+      ← Todos os trabalhos
     </a>
 
     <h1 class="font-display text-ink mt-6 max-w-2xl text-3xl font-medium sm:text-4xl">
@@ -36,12 +36,12 @@ const formattedDate = formatDate(date);
     <dl
       class="border-line text-ink-soft mt-6 flex flex-wrap gap-x-8 gap-y-2 border-y py-4 font-mono text-xs"
     >
-      <div><dt class="inline">Role —</dt><dd class="inline">{role}</dd></div>
-      <div><dt class="inline">Date —</dt><dd class="inline">{formattedDate}</dd></div>
+      <div><dt class="inline">Papel —</dt><dd class="inline">{role}</dd></div>
+      <div><dt class="inline">Data —</dt><dd class="inline">{formattedDate}</dd></div>
       {
         tags.length > 0 && (
           <div>
-            <dt class="inline">Stack — </dt>
+            <dt class="inline">Tecnologias — </dt>
             <dd class="inline">{tags.join(', ')}</dd>
           </div>
         )
@@ -56,14 +56,14 @@ const formattedDate = formatDate(date);
       {
         url && (
           <Button href={url} variant="solid">
-            Visit live →
+            Visitar ao vivo →
           </Button>
         )
       }
       {
         repo && (
           <Button href={repo} variant="ghost">
-            View source
+            Ver código
           </Button>
         )
       }

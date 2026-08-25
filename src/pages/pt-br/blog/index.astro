@@ -4,17 +4,17 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import SectionHeading from '@/components/SectionHeading.astro';
 import { formatDate } from '@/utils/formatDate';
 
-const posts = (await getCollection('blog', ({ id, data }) => !data.draft && !id.endsWith('-pt-br'))).sort(
+const posts = (await getCollection('blog', ({ id, data }) => !data.draft && id.endsWith('-pt-br'))).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
 ---
 
-<BaseLayout title="Blog" description="Writings on software engineering and development.">
+<BaseLayout title="Blog" description="Escritos sobre engenharia de software e desenvolvimento.">
   <section class="mx-auto max-w-3xl px-6 pt-16 pb-24 sm:pt-24">
     <SectionHeading eyebrow="Blog" count={posts.length} />
     {posts.length === 0 ? (
       <div class="border-line mt-8 border border-dashed p-12 text-center">
-        <p class="text-ink-soft text-sm">No blog posts yet. Stay tuned!</p>
+        <p class="text-ink-soft text-sm">Ainda não há postagens no blog. Fique ligado!</p>
       </div>
     ) : (
       <div class="mt-8 space-y-12">
@@ -22,7 +22,7 @@ const posts = (await getCollection('blog', ({ id, data }) => !data.draft && !id.
           <article>
             <p class="text-ink-soft font-mono text-xs">{formatDate(post.data.date, 'compact')}</p>
             <h2 class="font-display text-ink hover:text-signal mt-2 text-2xl transition-colors">
-              <a href={`/blog/${post.id}`}>{post.data.title}</a>
+              <a href={`/pt-br/blog/${post.id.replace('-pt-br', '')}`}>{post.data.title}</a>
             </h2>
             <p class="text-ink-soft mt-3">{post.data.summary}</p>
           </article>

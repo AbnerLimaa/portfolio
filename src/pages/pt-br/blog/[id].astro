@@ -4,9 +4,9 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { formatDate } from '@/utils/formatDate';
 
 export async function getStaticPaths() {
-  const entries = await getCollection('blog', ({ id, data }) => !data.draft && !id.endsWith('-pt-br'));
+  const entries = await getCollection('blog', ({ id, data }) => !data.draft && id.endsWith('-pt-br'));
   return entries.map((entry) => ({
-    params: { id: entry.id },
+    params: { id: entry.id.replace('-pt-br', '') },
     props: { entry },
   }));
 }
@@ -24,8 +24,8 @@ const formattedDate = formatDate(date);
 
 <BaseLayout title={title} description={summary}>
   <article class="mx-auto max-w-3xl px-6 pt-16 pb-24 sm:pt-24">
-    <a href="/blog" class="text-ink-soft hover:text-signal font-mono text-xs transition-colors">
-      ← All posts
+    <a href="/pt-br/blog" class="text-ink-soft hover:text-signal font-mono text-xs transition-colors">
+      ← Todas as postagens
     </a>
 
     <h1 class="font-display text-ink mt-6 max-w-2xl text-3xl font-medium sm:text-4xl">

@@ -10,6 +10,14 @@ const SITE_URL = 'https://astro-starter-portfolio.vercel.app';
 export default defineConfig({
   site: SITE_URL,
 
+  i18n: {
+    defaultLocale: 'pt-br',
+    locales: ['en', 'pt-br'],
+    routing: {
+      prefixDefaultLocale: false,
+    }
+  },
+
   integrations: [sitemap()],
 
   // Prefetches internal links on hover/viewport entry for near-instant navigation.
