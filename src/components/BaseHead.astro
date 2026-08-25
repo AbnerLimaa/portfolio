@@ -69,15 +69,22 @@ const socialImage = new URL(image || '/og-image.png', Astro.site);
     // Kept in sync by ThemeToggle.astro and re-applied after every
     // view-transition navigation below.
     (function () {
-    const stored = localStorage.getItem('theme');
+    const stored = sessionStorage.getItem('theme');
     const theme =
         stored ?? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     document.documentElement.classList.toggle('dark', theme === 'dark');
     })();
     document.addEventListener('astro:after-swap', () => {
-        const stored = localStorage.getItem('theme');
+        const stored = sessionStorage.getItem('theme');
         const theme = stored ?? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         document.documentElement.classList.toggle('dark', theme === 'dark');
+    });
+    
+    // Listen for OS theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!sessionStorage.getItem('theme')) {
+            document.documentElement.classList.toggle('dark', e.matches);
+        }
     });
 </script>
 
