@@ -44,6 +44,7 @@ const projects = defineCollection({
       icon: z.string().optional(),
       repo: z.string().url().optional(),
       draft: z.boolean().default(false),
+      featured: z.boolean().default(false),
     }),
 });
 

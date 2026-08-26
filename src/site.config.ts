@@ -4,10 +4,10 @@ export const SITE = {
   name: 'Abner Lima',
   role: 'Senior Software Engineer',
   email: 'abner.lima27@outlook.com',
-  tagline: 'I architect and build high-performance, scalable distributed systems.',
+  tagline: 'Software architecture, high-performance and scalable distributed systems specialist.',
   description:
     'My Portfolio — Software Engineer specialized in event-driven architecture, microservices, and robust cloud infrastructure with experience working for the financial market.',
-  status: 'Currently building open-source at Cajá Tech · open to new work, Q3 2026',
+  status: 'Currently building open-source at Cajá Tech · open to new work',
   social: [
     { label: 'GitHub', href: 'https://github.com/AbnerLimaa' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/abner-lima-64262b114' },

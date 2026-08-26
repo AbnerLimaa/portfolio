@@ -7,6 +7,8 @@ import SectionHeading from '@/components/SectionHeading.astro';
 import { SITE } from '@/site.config';
 
 const allWork = await getCollection('work', ({ id, data }) => !data.draft && !id.endsWith('-pt-br'));
+const allProjects = await getCollection('projects', ({ id, data }) => !data.draft && !id.endsWith('-pt-br'));
+const featuredProjects = allProjects.filter((entry) => entry.data.featured).slice(0, 4);
 const sorted = [...allWork].sort((a, b) => {
   const aDate = a.data.endDate ? a.data.endDate.valueOf() : new Date().valueOf();
   const bDate = b.data.endDate ? b.data.endDate.valueOf() : new Date().valueOf();
@@ -37,6 +39,36 @@ const selected = [...featured, ...rest].slice(0, 5);
       <Button href="#contact" variant="ghost">Get in touch</Button>
     </div>
   </section>
+
+  {featuredProjects.length > 0 && (
+    <section id="projects" class="mx-auto max-w-3xl px-6 pb-20">
+      <SectionHeading eyebrow="Featured Projects" count={allProjects.length} />
+      <div class="mt-8 grid gap-6 sm:grid-cols-2">
+        {featuredProjects.map((project) => (
+          <a href={`/projects/${project.id}`} class="border-line hover:border-signal block border p-6 sm:p-8 transition-colors">
+            <div class="flex items-center gap-3">
+              {project.data.icon && (
+                <img src={project.data.icon} alt="" class="h-6 w-6" aria-hidden="true" />
+              )}
+              <h2 class="font-display text-ink text-xl">{project.data.title}</h2>
+            </div>
+            <p class="text-ink-soft mt-3 text-sm">{project.data.description}</p>
+            <span class="text-signal mt-6 inline-block font-mono text-xs">View details →</span>
+          </a>
+        ))}
+      </div>
+      {allProjects.length > featuredProjects.length && (
+        <div class="mt-6">
+          <a
+            href="/projects"
+            class="text-ink-soft hover:text-signal font-mono text-xs transition-colors"
+          >
+            View all {allProjects.length} projects →
+          </a>
+        </div>
+      )}
+    </section>
+  )}
 
   <section id="work" class="mx-auto max-w-3xl px-6 pb-20">
     <SectionHeading eyebrow="Selected work" count={allWork.length} />

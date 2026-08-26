@@ -4,6 +4,7 @@ description: A linguagem de programação Cajá e ferramentas de linha de comand
 icon: /caja-logo48x48.svg
 repo: https://github.com/caja-tech/caja-cli
 draft: false
+featured: true
 ---
 
 A linguagem de programação Cajá foi projetada para promover a programação funcional e construída para rapidamente criar scripts simples que podem ser usados como protótipos com o objetivo de validar provas de conceito.

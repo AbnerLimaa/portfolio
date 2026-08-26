@@ -4,6 +4,7 @@ description: The Cajá programming language and command-line tools.
 icon: /caja-logo48x48.svg
 repo: https://github.com/caja-tech/caja-cli
 draft: false
+featured: true
 ---
 
 The Cajá language is designed to promote functional programming and was built to quickly create simple scripts that can be used as a prototype to validate a proof of concept.
