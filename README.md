@@ -23,6 +23,5 @@ The site's content is managed using Markdown files, making it incredibly easy to
 
 ## Contact
 
-- **Email:** abner.lima27@outlook.com
+- **Email:** contact@abnerlima.dev
 - **LinkedIn:** [abner-lima-64262b114](https://www.linkedin.com/in/abner-lima-64262b114)
-- **GitHub:** [AbnerLimaa](https://github.com/AbnerLimaa)

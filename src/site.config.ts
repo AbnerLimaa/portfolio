@@ -3,7 +3,7 @@
 export const SITE = {
   name: 'Abner Lima',
   role: 'Senior Software Engineer',
-  email: 'abner.lima27@outlook.com',
+  email: 'contact@abnerlima.dev',
   tagline: 'Software architecture, high-performance and scalable distributed systems specialist.',
   description:
     'My Portfolio — Software Engineer specialized in event-driven architecture, microservices, and robust cloud infrastructure with experience working for the financial market.',
