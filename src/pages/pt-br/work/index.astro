@@ -17,7 +17,7 @@ const allWork = (await getCollection('work', ({ id, data }) => !data.draft && id
   title="Trabalhos"
   description="Projetos selecionados em engenharia de software."
 >
-  <section class="mx-auto max-w-3xl px-6 pt-16 pb-24 sm:pt-24">
+  <section class="mx-auto max-w-5xl px-6 pt-16 pb-24 sm:pt-24">
     <SectionHeading eyebrow="Todos os trabalhos" count={allWork.length} />
     <div>
       {allWork.map((entry) => <WorkRow entry={entry} />)}

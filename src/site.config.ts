@@ -4,7 +4,7 @@ export const SITE = {
   name: 'Abner Lima',
   role: 'Senior Software Engineer',
   email: 'contact@abnerlima.dev',
-  tagline: 'Software architecture, high-performance and scalable distributed systems specialist.',
+  tagline: 'Specialist in software architecture, high-performance and scalable distributed systems.',
   description:
     'My Portfolio — Software Engineer specialized in event-driven architecture, microservices, and robust cloud infrastructure with experience working for the financial market.',
   status: 'Currently building open-source at Cajá Tech · open to new work',

@@ -7,7 +7,7 @@ const projects = (await getCollection('projects', ({ id, data }) => !data.draft 
 ---
 
 <BaseLayout title="Projetos" description="Projetos de código aberto e experimentos.">
-  <section class="mx-auto max-w-3xl px-6 pt-16 pb-24 sm:pt-24">
+  <section class="mx-auto max-w-5xl px-6 pt-16 pb-24 sm:pt-24">
     <SectionHeading eyebrow="Projetos" count={projects.length} />
     <div class="mt-8 grid gap-6 sm:grid-cols-2">
       {projects.map((project) => (

@@ -20,13 +20,13 @@ const selected = [...featured, ...rest].slice(0, 5);
 ---
 
 <BaseLayout title={SITE.name}>
-  <section class="mx-auto max-w-3xl px-6 pt-16 pb-20 sm:pt-24">
+  <section class="mx-auto max-w-5xl px-6 pt-16 pb-20 sm:pt-24">
     <p class="text-ink-soft mb-6 inline-flex items-center gap-2 font-mono text-xs">
       <span class="bg-signal h-1.5 w-1.5 rounded-full" aria-hidden="true"></span>
       Atualmente construindo projetos open-source na Cajá Tech · disponível para novas oportunidades
     </p>
 
-    <h1 class="font-display text-ink max-w-2xl text-4xl leading-[1.1] font-medium sm:text-5xl">
+    <h1 class="font-display text-ink text-4xl leading-[1.1] font-medium sm:text-5xl">
       Especialista em arquitetura de software, sistemas distribuídos escaláveis e de alta performance.
     </h1>
 
@@ -41,7 +41,7 @@ const selected = [...featured, ...rest].slice(0, 5);
   </section>
 
   {featuredProjects.length > 0 && (
-    <section id="projects" class="mx-auto max-w-3xl px-6 pb-20">
+    <section id="projects" class="mx-auto max-w-5xl px-6 pb-20">
       <SectionHeading eyebrow="Projetos em Destaque" count={allProjects.length} />
       <div class="mt-8 grid gap-6 sm:grid-cols-2">
         {featuredProjects.map((project) => (
@@ -70,7 +70,7 @@ const selected = [...featured, ...rest].slice(0, 5);
     </section>
   )}
 
-  <section id="work" class="mx-auto max-w-3xl px-6 pb-20">
+  <section id="work" class="mx-auto max-w-5xl px-6 pb-20">
     <SectionHeading eyebrow="Trabalhos em destaque" count={allWork.length} />
     <div>
       {selected.map((entry) => <WorkRow entry={entry} />)}
@@ -89,7 +89,7 @@ const selected = [...featured, ...rest].slice(0, 5);
     }
   </section>
 
-  <section id="about" class="mx-auto max-w-3xl px-6 pb-20">
+  <section id="about" class="mx-auto max-w-5xl px-6 pb-20">
     <SectionHeading eyebrow="Sobre Mim" />
     <p class="text-ink-soft max-w-xl">
       Meu Portfólio — Engenheiro de Software especializado em arquitetura orientada a eventos, microsserviços e infraestrutura robusta em nuvem com experiência no mercado financeiro.
@@ -99,7 +99,7 @@ const selected = [...featured, ...rest].slice(0, 5);
     </a>
   </section>
 
-  <section id="contact" class="mx-auto max-w-3xl px-6 pb-24">
+  <section id="contact" class="mx-auto max-w-5xl px-6 pb-24">
     <SectionHeading eyebrow="Vamos conversar" />
     <p class="font-display text-ink max-w-lg text-2xl sm:text-3xl">
       Sinta-se à vontade para entrar em contato.

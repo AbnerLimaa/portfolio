@@ -10,7 +10,7 @@ const posts = (await getCollection('blog', ({ id, data }) => !data.draft && id.e
 ---
 
 <BaseLayout title="Blog" description="Escritos sobre engenharia de software e desenvolvimento.">
-  <section class="mx-auto max-w-3xl px-6 pt-16 pb-24 sm:pt-24">
+  <section class="mx-auto max-w-5xl px-6 pt-16 pb-24 sm:pt-24">
     <SectionHeading eyebrow="Blog" count={posts.length} />
     {posts.length === 0 ? (
       <div class="border-line mt-8 border border-dashed p-12 text-center">
