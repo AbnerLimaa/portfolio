@@ -30,7 +30,7 @@ const selected = [...featured, ...rest].slice(0, 5);
       {SITE.tagline}
     </h1>
 
-    <p class="text-ink-soft mt-6 max-w-md">
+    <p class="text-ink-soft mt-6 ">
       {SITE.role} — passionate about creating robust software solutions.
     </p>
 
@@ -91,7 +91,7 @@ const selected = [...featured, ...rest].slice(0, 5);
 
   <section id="about" class="mx-auto max-w-5xl px-6 pb-20">
     <SectionHeading eyebrow="About Me" />
-    <p class="text-ink-soft max-w-xl">
+    <p class="text-ink-soft ">
       {SITE.description}
     </p>
     <a href="/about" class="text-signal mt-4 inline-block font-mono text-xs hover:underline">
@@ -101,10 +101,10 @@ const selected = [...featured, ...rest].slice(0, 5);
 
   <section id="contact" class="mx-auto max-w-5xl px-6 pb-24">
     <SectionHeading eyebrow="Let's talk" />
-    <p class="font-display text-ink max-w-lg text-2xl sm:text-3xl">
+    <p class="font-display text-ink text-2xl sm:text-3xl">
       Feel free to reach out.
     </p>
-    <p class="text-ink-soft mt-4 max-w-md">
+    <p class="text-ink-soft mt-4 ">
       I'm always open to discussing and connecting with other professionals. You can send me an email or reach out directly on <a href={SITE.social.find(s => s.label === 'LinkedIn')?.href} class="text-signal hover:underline" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
     </p>
     <!--email_off-->
