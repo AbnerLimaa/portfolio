@@ -1,4 +1,5 @@
 // @ts-check
+import fs from 'node:fs';
 import { defineConfig, fontProviders } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
@@ -17,7 +18,12 @@ export default defineConfig({
       rehypePlugins: [
         [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }]
       ]
-    })
+    }),
+    shikiConfig: {
+      langs: [
+        JSON.parse(fs.readFileSync(new URL('./src/caja.tmLanguage.json', import.meta.url), 'utf-8'))
+      ]
+    }
   },
 
   i18n: {

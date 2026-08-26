@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import coverImg from '@/assets/images/IMG_5429.jpeg';
+import profileImg from '@/assets/images/IMG_4792.JPG';
 
 import { SITE } from '@/site.config';
 
@@ -22,13 +25,13 @@ const tools = [
   <section class="mx-auto max-w-3xl px-6 pt-8 pb-24 sm:pt-12">
     <!-- Landscape Cover Image -->
     <div class="w-full aspect-video rounded-xl overflow-hidden bg-surface">
-      <img src="/IMG_5429.jpeg" alt="Cover Image" class="w-full h-full object-cover" />
+      <Image src={coverImg} alt="Cover Image" class="w-full h-full object-cover" />
     </div>
 
     <!-- Profile Picture -->
     <div class="relative -mt-16 sm:-mt-20 mb-6 ml-4 sm:ml-8">
-      <img 
-        src="/IMG_4792.JPG" 
+      <Image 
+        src={profileImg} 
         alt="Profile" 
         class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-4 sm:border-[6px] border-paper bg-paper"
       />
