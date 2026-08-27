@@ -52,6 +52,30 @@
 }
 
 @layer base {
+  html {
+    overflow-y: scroll;
+    scrollbar-color: var(--color-ink-soft) var(--color-paper);
+    scrollbar-width: thin;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-paper);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-ink-soft);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-ink);
+  }
+
   * {
     border-color: var(--color-line);
   }
